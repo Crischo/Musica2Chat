@@ -1,0 +1,26 @@
+.login-container  {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background-image: url('./../../assets/images/background.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  padding: 5px;
+}
+
+  .login-box {
+    margin:5px;
+    margin-top: 50px;
+    background-color:rgba(255, 255, 255, 0.9);;
+    padding:10px;
+    border-radius: 25px;
+  }
+
+
+
+  

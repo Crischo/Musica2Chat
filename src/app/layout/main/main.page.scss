@@ -1,0 +1,212 @@
+.bubble-me {
+    background-color: #d8ffcc;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    float:right;
+    vertical-align: top;
+    margin: 5px 10px 5px 10px;
+    border-color: #cdecb0;
+    font-size: 12px;
+    width: 90%;
+}
+
+.bubble-me::before {
+    float:right;
+    background-color: #d8ffcc;
+    content: "\00a0";
+    display: block;
+    height: 19px;
+    position:relative;
+    left: 26px;
+    top: 11px;
+    transform:             rotate( 205deg ) skew( -35deg );
+        -moz-transform:    rotate( 205deg ) skew( -35deg );
+        -ms-transform:     rotate( 205deg ) skew( -35deg );
+        -o-transform:      rotate( 205deg ) skew( -35deg );
+        -webkit-transform: rotate( 205deg ) skew( -35deg );
+    width:  20px;
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+}
+
+.bubble-others {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    vertical-align: top;
+    margin: 5px 10px 5px 10px;
+    border-color: #cdecb0;
+    font-size: 12px;
+    width: 90%;
+}
+
+.bubble-others::before {
+    background-color: #fff;
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    position: absolute;
+    top: 11px;
+    left: -9px;
+    transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  20px;
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+}
+
+.chat-message-box {
+    height: 100%;
+    width: 100%;
+    background-color: #fff7e6;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 5px;
+    
+  
+}
+
+.chatarea {
+    position: fixed;
+    bottom: 0;
+    right: 235px;
+    width: 300px;
+    border-color: #222;
+    background-color: #222;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 10px 10px 0px 0px;
+    border-style: solid;
+}
+
+.writter {
+    font-weight: bold;
+    font-size: 10px;
+    color:blue;
+    text-align: left;
+}
+
+.date {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 10px;
+    color:gray;
+    text-align: right;
+}
+page-ignug {
+    .cuadroMensajes{
+    
+        margin: 10px;
+        width: 95%;
+        min-height: 480px;
+        background-color: rgb(142, 187, 247);
+        border: 4px solid rgb(74, 161, 233);
+        
+    }
+    .bubble-me {
+        background-color: #d8ffcc;
+        border-radius: 5px;
+        box-shadow: 0 0 6px #B2B2B2;
+        display: inline-block;
+        padding: 10px 18px;
+        position: relative;
+        float:right;
+        vertical-align: top;
+        margin: 5px 10px 5px 10px;
+        border-color: #cdecb0;
+        font-size: 12px;
+        width: 90%;
+    }
+    
+    .bubble-me::before {
+        float:right;
+        background-color: #d8ffcc;
+        content: "\00a0";
+        display: block;
+        height: 19px;
+        position:relative;
+        left: 26px;
+        top: 11px;
+        transform:             rotate( 205deg ) skew( -35deg );
+            -moz-transform:    rotate( 205deg ) skew( -35deg );
+            -ms-transform:     rotate( 205deg ) skew( -35deg );
+            -o-transform:      rotate( 205deg ) skew( -35deg );
+            -webkit-transform: rotate( 205deg ) skew( -35deg );
+        width:  20px;
+        box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    }
+    
+    .bubble-others {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 6px #B2B2B2;
+        display: inline-block;
+        padding: 10px 18px;
+        position: relative;
+        vertical-align: top;
+        margin: 5px 10px 5px 10px;
+        border-color: #cdecb0;
+        font-size: 12px;
+        width: 90%;
+    }
+    
+    .bubble-others::before {
+        background-color: #fff;
+        content: "\00a0";
+        display: block;
+        height: 16px;
+        position: absolute;
+        top: 11px;
+        left: -9px;
+        transform:             rotate( 29deg ) skew( -35deg );
+            -moz-transform:    rotate( 29deg ) skew( -35deg );
+            -ms-transform:     rotate( 29deg ) skew( -35deg );
+            -o-transform:      rotate( 29deg ) skew( -35deg );
+            -webkit-transform: rotate( 29deg ) skew( -35deg );
+        width:  20px;
+        box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    }
+    
+    .chat-message-box {
+        height: 300px;
+        background-color: #fff7e6;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: 5px;
+    }
+    
+    .chatarea {
+        position: fixed;
+        bottom: 0;
+        right: 235px;
+        width: 300px;
+        border-color: #222;
+        background-color: #222;
+        border-width: 1px 1px 1px 1px;
+        border-radius: 10px 10px 0px 0px;
+        border-style: solid;
+    }
+    
+    .writter {
+        font-weight: bold;
+        font-size: 10px;
+        color:blue;
+        text-align: left;
+    }
+    
+    .date {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 10px;
+        color:gray;
+        text-align: right;
+    }
+    
+    ::placeholder { color: rgb(56, 55, 55) !important; }
+}

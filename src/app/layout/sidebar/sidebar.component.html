@@ -1,0 +1,12 @@
+<ion-list>
+    <ion-menu-toggle auto-hide="false" *ngFor="let sala of salas">
+      <ion-item (click)="salaSeleccionada(sala)">
+        <ion-icon slot="start" name="contacts" [routerLink]="'/miembros-sala'"></ion-icon>
+        <ion-label [routerLink]="'/main'">
+          <span *ngIf="entidadSeleccionada !== sala">{{sala.nombre}}</span>
+          <strong *ngIf="entidadSeleccionada === sala">{{sala.nombre}}</strong>
+        </ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-list>
+  

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><strong>Miembros de la Sala - {{sala.nombre}}</strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let miembro of sala.miembros">
+      <ion-item>
+        <ion-avatar>
+          <img *ngIf="miembroSeleccionado !== miembro || fotoSeleccionado.tipoArchivo === null" src="assets/images/user.png">
+          <img *ngIf="miembroSeleccionado === miembro && fotoSeleccionado.tipoArchivo !== null" src="data:{{fotoSeleccionado.tipoArchivo}};base64,{{fotoSeleccionado.adjunto}}">
+        </ion-avatar>
+        <ion-label (click)="seleccionarMiembro(miembro)">&nbsp;
+          <span *ngIf="miembroSeleccionado !== miembro">{{miembro.nombreCompleto}}</span>
+          <strong *ngIf="miembroSeleccionado === miembro">{{miembro.nombreCompleto}}</strong>
+          <p *ngIf="isPersonaSeleccionada && miembroSeleccionado === miembro" col-12 text-center>
+            Contacto Emergencia: {{personaSeleccionada.nombreContactoEmergencia}}/{{personaSeleccionada.parentescoContactoEmergencia}}
+          </p>
+          <p *ngIf="isPersonaSeleccionada && miembroSeleccionado === miembro" col-12 text-center>
+            Email: <a href="mailto:{{ personaSeleccionada.correoElectronicoInstitucional }}">{{ personaSeleccionada.correoElectronicoInstitucional }}</a>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="success" (click)="makeCall(personaSeleccionada.telefonoCelular)" *ngIf="isPersonaSeleccionada && miembroSeleccionado === miembro">
+          <ion-icon name="call"></ion-icon>&nbsp;Llamar Celular
+        </ion-item-option>
+        <ion-item-option color="primary" (click)="makeCall(personaSeleccionada.telefonoDomicilio)" *ngIf="isPersonaSeleccionada && miembroSeleccionado === miembro">
+          <ion-icon name="call"></ion-icon>&nbsp;Llamar Domicilio
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

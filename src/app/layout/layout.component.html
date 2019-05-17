@@ -1,0 +1,21 @@
+<ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img [src]="srcFoto">
+            </ion-avatar>
+            <ion-label>&nbsp;{{user.nombre1}} {{user.nombre2}} {{user.apellido1}} {{user.apellido2}}
+            </ion-label>
+            <ion-icon name="close" slot="end" (click)="logout()"></ion-icon>
+          </ion-item>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <app-sidebar></app-sidebar>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+  

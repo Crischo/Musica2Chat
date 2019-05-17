@@ -1,0 +1,146 @@
+<!-- Area de mensajes-->
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title
+        ><span
+          ><img
+            src="assets/images/logo.png"
+            height="45px"
+            width="auto"
+            style="margin-top: 5px;"
+            #refresh
+            /></span
+            ><span *ngIf = "refrescandoSala()" href="#mostrarUltimo">&nbsp;Espere</span>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <div
+    class="chat-message-box"
+    style="overflow-y: auto; overflow-x: hidden; "
+  >
+    <div class="cuadroMensajes">
+        <!--Directivas para fltrar mensajes-->
+        <div *ngFor="let message of messages">
+            <div
+            *ngIf="message.nombre == userName"
+                class="bubble-me"
+            >
+                <div class="col-6 writter">
+                    <strong>{{ message.nombre }}</strong>
+                </div>
+                <div class="col-6 writter">
+                    {{ message.fecha | date: "medium" }}
+                </div>
+                <div class="col-12 text-justify">
+                    {{ message.mensaje }}
+                </div>
+                <div class="col-12 text-justify">
+                    <div *ngIf = "message.adjunto">
+                        <div *ngIf="message.tipo.split('/')[0] === 'image'">
+                            <span (click)="downloadFile(message.adjunto, message.tipo, message.nomDoc)">
+                                <img
+                                    src="data:{{message.tipo}};base64,{{ message.adjunto}}"
+                                    width="auto" height="100px"
+                                    alt=""
+                                />
+                            </span>
+                            <button ion-button (click)="downloadFile(message.adjunto, message.tipo, message.nomDoc)">
+                              Click me!
+                            </button>
+                        </div>
+                        <div *ngIf="message.tipo.split('/')[0] !== 'image'">
+                                <span (click)="downloadFile(message.adjunto, message.tipo, message.nomDoc)">
+                                    <img
+                                        src="assets/google_docs-logo2.jpg"
+                                        width="auto" height="50px"
+                                    />
+  
+                            </span>
+                            <button ion-button (click)="downloadFile(message.adjunto, message.tipo, message.nomDoc)">
+                              Click me!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+                Sus Mensajes
+           -->
+            <div
+            *ngIf="message.nombre != userName"
+                class="bubble-others"
+            >
+                <div class="col-6 writter">
+                    <strong>{{ message.nombre }}</strong>
+                </div>
+                <div class="col-6 writter">
+                    {{ message.fecha | date: "medium" }}
+                </div>
+                <div class="col-12 text-justify">
+                    {{ message.mensaje }}
+                </div>
+                <div class="col-12 text-justify">
+                    <div *ngIf = "message.adjunto">
+                        <div *ngIf="message.tipo.split('/')[0] === 'image'">
+                            
+                                <img
+                                    src="data:{{message.tipo}};base64,{{ message.adjunto}}"
+                                    width="auto" height="100px"
+                                    (click)="download(message.adjunto, message.tipo, message.nomDoc)"
+                                    alt=""
+                                />
+                                <button ion-button (click)="downloadFile(message.adjunto, message.tipo, message.nomDoc)">
+                                  Click me!
+                                </button>
+                        </div>
+                        <div *ngIf="message.tipo.split('/')[0] !== 'image'">
+                                
+                                    <img
+                                        (click)="downloadFile(message.adjunto, message.tipo, message.nomDoc)"
+                                        src="assets/google_docs-logo2.jpg"
+                                        width="auto" height="50px"
+                                    />
+                                    <button ion-button (click)="downloadFile(message.adjunto, message.tipo, message.nomDoc)">
+                                      Click me!
+                                    </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        
+    </div>
+   
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      
+    </ion-fab>
+  
+      <ion-fab vertical="bottom" horizontal="end">
+          <ion-fab-button>
+              <ion-icon name="text"></ion-icon>
+          </ion-fab-button>
+        
+          <ion-fab-list side="top">
+              <ion-fab-button (click)="writeMessage()">
+                  <ion-icon name="create"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button (click)="adjuntarArchivo()">
+                  <ion-icon name="attach"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button (click)="eliminarAdjunto()">
+                  <ion-icon name="trash"></ion-icon>
+                  <ion-icon name="attach"></ion-icon>
+              </ion-fab-button>
+          </ion-fab-list>
+      </ion-fab>
+  </div>
+  </ion-content>
+  <input  type="file" ion-button block color="dark" id="adjunto" placeholder="Fotografía" #fileInput 
+                   (change)="CodificarArchivo($event)" accept="*" [hidden]="true">
+                   
