@@ -10,12 +10,17 @@ import { IonicModule } from '@ionic/angular';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpModule } from '@angular/http';
 
+
+
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     HttpModule,
+  
     LayoutRoutingModule
   ],
   declarations: [LayoutComponent, SidebarComponent],
