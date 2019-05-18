@@ -175,17 +175,24 @@ refrescandoSala(): Boolean {
 
   CodificarArchivo(event) {
     const reader = new FileReader();
-    if (event.target.files && event.target.files.length > 0) {
-      const file = event.target.files[0];
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.fotoNombre = file.name;
-        this.fotoType = file.type;
-        this.fotoFile = reader.result.toString().split(",")[1];
-        this.srcFoto = this.fotoFile;
-        this.writeMessage();
-      };
+    //dgsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+    console.log("tamaño "+event.target.files[0].size);
+    if(event.target.files[0].size>7340032){
+alert("El archivo es muy pesado ");
+    }else{
+      if (event.target.files && event.target.files.length > 0) {
+        const file = event.target.files[0];
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          this.fotoNombre = file.name;
+          this.fotoType = file.type;
+          this.fotoFile = reader.result.toString().split(",")[1];
+          this.srcFoto = this.fotoFile;
+          this.writeMessage();
+        };
+      }
     }
+   
   }
 
   onFileChange(event) {
